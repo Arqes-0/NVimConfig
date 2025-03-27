@@ -1,0 +1,2 @@
+# VimConfig
+My personal NeoVimConfig
