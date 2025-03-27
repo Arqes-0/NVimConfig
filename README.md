@@ -30,5 +30,3 @@ After installing VimPlug, open Vim and run the following command to install plug
 ```vim
 :PlugInstall
 ```
-
-Happy coding! 🚀
