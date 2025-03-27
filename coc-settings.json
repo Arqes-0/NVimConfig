@@ -1,0 +1,21 @@
+{
+
+  "clangd.formatting": true,
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.enablePreselect": true,
+  "suggest.autoTrigger": "always",
+  "suggest.noselect": false,
+  "tsserver.enable": true,
+  "clangd.inlayHints.enable": false,
+  "python.pythonPath": "/usr/bin/python3",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript", 
+    "typescript", 
+    "python", 
+    "c", 
+    "cpp",
+    "sql"
+  ],
+  "clangd.enable": true
+}
+
