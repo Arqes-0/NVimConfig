@@ -1,7 +1,7 @@
 # Installation Guide
 
 ## Prerequisites
-Make sure you have installed the following dependencies before proceeding. If you are using a Debian-based system, you can install them using:
+Make sure you have installed the following dependencies before proceeding. If you are using a Debian-based system (you may need to be in the testing version), you can install them using:
 
 ```sh
 sudo apt update && sudo apt install -y git nodejs npm curl
