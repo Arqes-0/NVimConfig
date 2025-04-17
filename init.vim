@@ -35,6 +35,13 @@ let g:lightline = {
 \     'left': [ ['filename'] ]
 \   },
 \}
+" Para gestionar los paquetes de COC
+let g:coc_global_extensions = [
+  \ 'coc-pyright', 
+  \ 'coc-snippets',
+  \ 'coc-clangd',
+  \ 'coc-prettier'
+  \ ]
 
 
 
