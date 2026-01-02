@@ -3,7 +3,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Complemento para nvim-treesitter (resaltado de sintaxis)
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ryanoasis/vim-devicons'
-Plug 'folke/tokyonight.nvim'  " Esquema de colores tokyonight
+Plug 'folke/tokyonight.nvim'
 Plug 'preservim/nerdtree'  " Complemento NerdTree
 Plug 'nvim-lualine/lualine.nvim' " Para lineas y columnas
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -16,15 +16,25 @@ Plug 'nvim-tree/nvim-web-devicons'
 call plug#end()
 
 lua << EOF
+-- Configuración de lualine
+local status_lualine, lualine = pcall(require, "lualine")
+if status_lualine then
+    lualine.setup()
+end
 
-require('lualine').setup()
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = "c",  -- Esto asegura que el resaltado de C esté disponible
-  highlight = {
-    enable = true,  -- Habilita el resaltado de sintaxis
-    additional_vim_regex_highlighting = false,
-  },
-}
+-- Configuración de treesitter
+local status_ts, ts = pcall(require, "nvim-treesitter.configs")
+if status_ts then
+    ts.setup {
+      ensure_installed = { "c", "lua", "vim", "vimdoc" }, -- Recomiendo añadir lua y vim
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      },
+    }
+else
+    print("Treesitter no encontrado, ejecuta :PlugInstall")
+end
 EOF
 let g:lightline = {
 \   'colorscheme': 'one',
@@ -56,3 +66,11 @@ nnoremap <C-k> :tabnext<CR>
 nnoremap <C-j> :tabprevious<CR>
 command! ToggleHints :CocCommand document.toggleInlayHint
 nnoremap <C-b> :ToggleHints<CR>
+set clipboard=unnamedplus
+" Copiar al portapapeles
+vmap <C-c> "+y
+" Cortar al portapapeles
+vmap <C-x> "+d
+" Pegar desde el portapapeles
+nmap <C-v> "+p
+imap <C-v> <C-r>+

@@ -16,6 +16,8 @@
     "cpp",
     "sql"
   ],
-  "clangd.enable": true
+  "clangd.enable": true,
+
+
 }
 
